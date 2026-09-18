@@ -1,0 +1,713 @@
+/* ================================================================
+   SONY'S OFFICIAL GOODS — STYLESHEET
+   ไฟล์นี้แบ่งเป็นหมวดหมู่ด้วยคอมเมนต์ เพื่อให้หาจุดที่ต้องการแก้ไขได้ง่าย
+   สารบัญ (กด Ctrl/Cmd+F แล้วพิมพ์ชื่อหมวดเพื่อกระโดดไปจุดนั้น):
+     1. RESET & BASE
+     2. VARIABLES (สี / ระยะห่าง / ฟอนต์ - แก้ตรงนี้ที่เดียวมีผลทั้งเว็บ)
+     3. UTILITIES
+     4. HEADER
+     5. HERO
+     6. MARQUEE
+     7. INTRO / ABOUT
+     8. PRODUCTS (โครงสร้างร่วม + เลย์เอาต์ 2 คอลัมน์ สลับซ้าย-ขวา ใช้กับสินค้าทุกชิ้น)
+     11. STORE
+     12. WALLPAPER
+     13. FOOTER
+     13.5 FLOATING BOX (กล่องลอยมุมขวาล่าง ลิงก์ไป sony.co.th)
+     14. RESPONSIVE (จอเล็ก / แนวตั้ง-แนวนอน)
+   ================================================================ */
+
+
+/* ---------------------------------------------------------------
+   2. VARIABLES
+   แก้สี/ฟอนต์/ระยะห่างหลักของทั้งเว็บไซต์ได้ที่นี่ที่เดียว
+--------------------------------------------------------------- */
+:root {
+  /* สี */
+  --color-black: #111111;
+  --color-white: #ffffff;
+  --color-bg: #e5e2d1;         /* สีพื้นหลังหลักของทั้งเว็บไซต์ */
+  --color-green: #cbe94a;      /* สีเขียวหลัก (Hero + ตัวหนังสือวิ่ง) */
+  --color-green-dark: #a9c93a;
+  --color-red: #fd6500;        /* สีปุ่ม Buy This */
+  --color-red-dark: #b80015;
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f2f2f2;
+  --color-gray-300: #d9d9d9;
+  --color-gray-500: #8a8a8a;
+  --color-gray-700: #444444;
+
+  /* ฟอนต์
+     --font-heading : หัวข้อใหญ่ตัวหนา (Unbounded)
+     --font-en      : ภาษาอังกฤษทั่วไป (Noto Sans)
+     --font-th      : ภาษาไทย (IBM Plex Sans Thai) */
+  --font-heading: 'Unbounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-en: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-th: 'IBM Plex Sans Thai', var(--font-en);
+
+  /* เลย์เอาต์ */
+  --header-height: 60px;
+  --max-width: 1200px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+
+  /* ความเร็ว transition มาตรฐาน */
+  --ease: 0.25s ease;
+  
+}
+
+
+/* ---------------------------------------------------------------
+   1. RESET & BASE
+--------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  /* กันเนื้อหาโดนเมนูบนสุดบัง เวลากดลิงก์เลื่อนไปยัง section ต่างๆ */
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-th);
+  color: var(--color-black);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* กัน marquee ทำให้เกิด scrollbar แนวนอน */
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p { margin: 0; }
+ul { list-style: none; margin: 0; padding: 0; }
+
+/* จุดปลายทางของเมนู (About / Product / Store) เผื่อระยะบนสุดไว้
+   เท่ากับความสูงเมนู เวลากระโดดไปจะไม่ถูกเมนูบัง */
+#introduction, #product-01, #store {
+  scroll-margin-top: var(--header-height);
+}
+
+ul.square-list {
+  list-style-type: square; /* Options: disc, circle, square, none */
+  margin-top: 8px;
+}
+
+/* ---------------------------------------------------------------
+   3. UTILITIES
+--------------------------------------------------------------- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+
+
+/* ---------------------------------------------------------------
+   4. HEADER
+   เมนูบนสุด ค้างอยู่ตลอดเวลาด้วย position: sticky
+--------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--header-height);
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-gray-300);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+.main-nav {
+  display: flex;
+  gap: clamp(16px, 3vw, 40px);
+}
+
+.nav-link {
+  font-family: var(--font-en);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-black);
+  transition: right var(--ease);
+}
+
+.nav-link:hover::after { right: 0; }
+
+
+/* ---------------------------------------------------------------
+   5. HERO
+   รูปภาพ (images/hero/Hero.png) เป็นไฟล์ PNG พื้นหลังโปร่งใส (transparent)
+   จึงกำหนดความสูงของ section ได้อย่างอิสระ (ไม่ผูกกับสัดส่วนไฟล์จริง)
+   โดยใช้ object-fit: contain แทน cover ทำให้เห็น "รูปเต็มภาพ ไม่มีการ crop"
+   เสมอ ไม่ว่า section จะสูงแค่ไหน ส่วนที่ว่างรอบรูป (letterbox) จะกลมกลืน
+   ไปกับสีพื้นหลัง --color-green ที่ตั้งไว้ (เข้ากับพื้นหลังโปร่งใสของรูป)
+   ปรับความสูงของ section ได้ที่ค่า height ด้านล่าง (ตอนนี้ลดลงจากเดิมที่สูงเกินไป)
+   หัวข้อใหญ่วางซ้อนทับมุมบนซ้าย ตรงพื้นที่ว่างของรูป
+--------------------------------------------------------------- */
+.hero {
+  position: relative;
+  height: clamp(280px, 34vw, 480px);
+  width: 100%;
+  background: var(--color-green);      /* สีพื้นหลัง กลมกลืนกับส่วนโปร่งใสของรูป */
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* เห็นรูปเต็มภาพเสมอ ไม่มีการ crop ไม่ว่า section จะสูง/เตี้ยแค่ไหน */
+  display: block;
+}
+
+.hero-inner {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: clamp(28px, 6vw, 72px) var(--gutter);
+  display: flex;
+  align-items: flex-start;     /* ข้อความอยู่ชิดบน */
+  justify-content: flex-start; /* ข้อความอยู่ชิดซ้าย */
+}
+
+.hero-text {
+  text-align: left;
+}
+
+.hero-text h1 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(30px, 5.2vw, 58px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--color-black);
+}
+
+.hero-text h2 {
+  margin-top: 10px;
+  font-family: var(--font-th);
+  font-weight: 600;
+  font-size: clamp(16px, 2.2vw, 22px);
+  line-height: 1.4;
+  color: var(--color-black);
+}
+
+
+/* ---------------------------------------------------------------
+   6. MARQUEE
+   แถบสีดำ ตัวหนังสือสีเขียว (ฟอนต์ Unbounded) วิ่งจากซ้ายไปขวา วนลูปไม่มีที่สิ้นสุด
+   หมายเหตุ: ใช้แค่จุดเดียว คือใต้ Hero section เท่านั้น ไม่ซ้ำที่อื่น
+--------------------------------------------------------------- */
+.marquee {
+  background: var(--color-black);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+
+.marquee__track {
+  display: inline-flex;
+  /* เนื้อหาถูกพิมพ์ซ้ำ 2 ชุดใน HTML แล้ว (ชุดจริง + ชุดสำเนา aria-hidden)
+     เพื่อให้ animation เลื่อนไป -50% แล้ววนกลับจุดเริ่มต้นได้พอดีไม่มีรอยต่อ */
+  animation: marquee-move 14s linear infinite;
+}
+
+.marquee__track span {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(16px, 2.4vw, 24px);
+  color: var(--color-green);
+  letter-spacing: 0.02em;
+}
+
+/* วิ่งจากซ้ายไปขวา: เริ่มที่ -50% (เนื้อหาเลื่อนไปทางซ้ายสุด) แล้วขยับไปที่ 0 */
+@keyframes marquee-move {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0%); }
+}
+
+/* ผู้ใช้ที่ตั้งค่าลดการเคลื่อนไหวไว้ในเครื่อง -> หยุด animation */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+}
+
+
+/* ---------------------------------------------------------------
+   7. INTRO / ABOUT
+--------------------------------------------------------------- */
+.intro {
+  padding: clamp(48px, 8vw, 96px) var(--gutter) clamp(32px, 6vw, 64px);
+}
+
+.intro-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-title {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(26px, 4.5vw, 40px);
+  letter-spacing: -0.01em;
+}
+
+.intro-subtitle {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: clamp(17px, 2.2vw, 20px);
+  color: var(--color-gray-700);
+}
+
+.intro-text {
+  margin-top: 22px;
+  font-size: clamp(16px, 1.8vw, 18px);
+  line-height: 1.9;
+  color: var(--color-gray-700);
+}
+
+.intro-text + .intro-text { margin-top: 14px; }
+
+
+/* ---------------------------------------------------------------
+   8. PRODUCTS — โครงสร้างร่วม + เลย์เอาต์ 2 คอลัมน์ (ใช้กับสินค้าทุกชิ้นเหมือนกัน)
+   - .product__media : รูปใหญ่ + แถว thumbnail อยู่ฝั่งเดียวกัน
+   - .product__info  : ป้ายกำกับ/ชื่อ/คำอธิบาย/ราคา/ปุ่มซื้อ อยู่รวมกันอีกฝั่ง
+   - .product--reverse : สลับให้ข้อมูลอยู่ซ้าย รูปอยู่ขวา (ใช้กับสินค้าชิ้นคู่ 02, 04)
+--------------------------------------------------------------- */
+.products {
+  padding: clamp(24px, 5vw, 48px) 0;
+}
+
+.product {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) var(--gutter);
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(28px, 5vw, 64px);
+}
+
+/* เส้นคั่นบางๆ ระหว่างสินค้าแต่ละชิ้น (แทนที่แถบ Marquee เดิมที่คั่นระหว่างสินค้า) */
+.product + .product {
+  border-top: 1px solid var(--color-gray-300);
+}
+
+.product--reverse {
+  flex-direction: row-reverse;
+}
+
+.product__media {
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
+.product__media img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  aspect-ratio: 4/3;   /* ตรงกับสัดส่วนรูปสินค้าจริง (626x470) ไม่ครอบตัดรูป */
+  object-fit: cover;
+}
+
+.product__thumbs {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.product__info {
+  flex: 1 1 50%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.product-number {
+  margin-top: 8px;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 48px;
+}
+.product-tag {
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+}
+
+.product-title {
+  margin-top: 8px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 36px);
+}
+
+.product-collection {
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-gray-700);
+}
+
+.product-desc {
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-gray-700);
+  max-width: 46ch;
+}
+
+/* แถวข้อมูล PRODUCT / PRICE ที่เปลี่ยนตามรูปที่เลือก */
+.product-meta {
+  margin-top: 24px;
+  display: flex;
+  gap: clamp(24px, 6vw, 56px);
+}
+
+.product-meta__col { display: flex; flex-direction: column; gap: 4px; }
+
+.product-meta__label {
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-gray-500);
+}
+
+.product-meta__value {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* ปุ่ม Buy This (ทรงแคปซูลมน) */
+.buy-btn {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 20px;
+  padding: 14px 36px;
+  background: var(--color-red);
+  color: var(--color-white);
+  font-family: var(--font-th);
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 999px;
+  transition: background var(--ease);
+}
+
+.buy-btn:hover { background: var(--color-red-dark); }
+
+/* แถวรูปเล็ก (thumbnail) ที่คลิก/hover แล้วเปลี่ยนรูปใหญ่+ชื่อ+ราคา */
+.thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  flex: 0 0 auto;
+  background: var(--color-gray-100);
+  transition: border-color var(--ease), transform var(--ease);
+}
+
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.thumb:hover { transform: translateY(-2px); }
+
+/* รูปเล็กที่กำลังถูกเลือกอยู่ */
+.thumb.is-active {
+  border-color: var(--color-black);
+}
+
+
+/* ---------------------------------------------------------------
+   11. STORE
+--------------------------------------------------------------- */
+.store {
+  background: var(--color-bg);
+  padding: clamp(48px, 8vw, 96px) var(--gutter);
+}
+
+.store-title {
+  max-width: var(--max-width);
+  margin: 0 auto 32px;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(30px, 4.6vw, 42px);
+}
+
+.store-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;   /* เผื่อพื้นที่ให้เห็นเงาการ์ดชัดเจน ไม่ทับกับการ์ดถัดไป */
+}
+
+.store-card {
+  border-radius: 0;   /* มุมแหลม ไม่มน */
+  aspect-ratio: 4 / 4;   /* สี่เหลี่ยมผืนผ้าแนวตั้ง คงสัดส่วนเดิมทุกขนาดจอ (คอลัมน์เปลี่ยนได้ ทรงไม่เปลี่ยน) */
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.65);   /* เงาสีเข้ม ขอบคมไม่เบลอ เยื้องลงขวา */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--color-white);
+}
+
+/* สีพื้นหลังการ์ดสลับกันตามตัวอย่างดีไซน์ */
+.store-card--dark   { background: var(--color-black); }
+.store-card--blue   { background: #1a2ecb; }
+.store-card--light  { background: var(--color-gray-100); color: var(--color-black); }
+
+.store-card__name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(22px, 2.6vw, 28px);
+  line-height: 1.2;
+  display: block;
+}
+
+.store-card__addr {
+  margin-top: 12px;
+  font-size: 17px;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.store-card__links {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* เบอร์โทร: มีเส้นขีดเส้นใต้ */
+.store-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  width: fit-content;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  opacity: 0.9;
+  transition: opacity var(--ease);
+}
+
+.store-card__link:hover { opacity: 1; }
+
+.store-card__link svg { width: 16px; height: 16px; flex: none; }
+
+/* "สอบถามข้อมูลเพิ่มเติม": อยู่ใต้เส้นขีดของเบอร์โทร ไม่มีเส้นใต้ตัวเอง ลิงก์ไป sony.co.th */
+.store-card__link--more {
+  border-bottom: none;
+  padding-bottom: 0;
+  font-weight: 500;
+  font-size: 14px;
+  opacity: 0.75;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.store-card__link--more:hover { opacity: 1; }
+
+
+/* ---------------------------------------------------------------
+   12. WALLPAPER
+--------------------------------------------------------------- */
+.wallpaper {
+  padding: clamp(48px, 8vw, 96px) var(--gutter);
+  text-align: center;
+}
+
+.wallpaper-title {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(24px, 4vw, 34px);
+}
+
+.wallpaper-desc {
+  margin-top: 12px;
+  font-size: 16px;
+  color: var(--color-gray-700);
+}
+
+.wallpaper-grid {
+  max-width: var(--max-width);
+  margin: 32px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+
+.wallpaper-card {
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.wallpaper-card__label {
+  padding: 10px 16px;
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.wallpaper-card__previews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.wallpaper-card__link {
+  display: block;
+  position: relative;
+}
+
+.wallpaper-card__link img { width: 100%; height: 160px; object-fit: cover; }
+
+.wallpaper-card__link span {
+  position: absolute;
+  bottom: 8px; left: 8px;
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(0,0,0,0.55);
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+
+/* ---------------------------------------------------------------
+   13. FOOTER
+--------------------------------------------------------------- */
+.site-footer {
+  padding: 24px var(--gutter) 40px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-gray-500);
+}
+
+
+/* ---------------------------------------------------------------
+   13.5 FLOATING BOX
+   กล่องลอยค้างมุมขวาล่างของจอตลอดเวลา (position: fixed) กดแล้วลิงก์ไปเว็บ
+   Sony หลัก (https://www.sony.co.th) เปิดแท็บใหม่
+   เปลี่ยนรูปได้ที่ images/logos/Floting-box.png (แนะนำสัดส่วนใกล้เคียง 3:2)
+--------------------------------------------------------------- */
+.floating-box {
+  position: fixed;
+  right: clamp(14px, 3vw, 32px);
+  bottom: clamp(14px, 3vw, 32px);
+  z-index: 900;
+  display: block;
+  line-height: 0;
+  transition: transform var(--ease);
+}
+
+.floating-box img {
+  width: clamp(84px, 10vw, 130px);
+  height: auto;
+  display: block;
+}
+
+.floating-box:hover,
+.floating-box:focus-visible {
+  transform: scale(1.06);
+}
+
+/* ผู้ใช้ที่ตั้งค่าลดการเคลื่อนไหวไว้ในเครื่อง -> ไม่ต้อง animate ขยับ */
+@media (prefers-reduced-motion: reduce) {
+  .floating-box { transition: none; }
+}
+
+
+/* ---------------------------------------------------------------
+   14. RESPONSIVE
+   จัดให้ใช้งานได้ดีทั้งจอมือถือ/แท็บเล็ต/เดสก์ท็อป และทั้งแนวตั้ง-แนวนอน
+--------------------------------------------------------------- */
+
+/* แท็บเล็ตและจอเล็กลงมา: สินค้าเรียงเป็นคอลัมน์เดียว (รูปอยู่บน ข้อมูลอยู่ล่างเสมอ
+   ไม่ว่าจะเป็นสินค้าชิ้นคู่/คี่ - ยกเลิกการสลับซ้าย-ขวาชั่วคราวบนจอแคบ) */
+@media (max-width: 900px) {
+  .product,
+  .product--reverse {
+    flex-direction: column;
+  }
+
+  .product__info { width: 100%; }
+
+  .store-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* มือถือ */
+@media (max-width: 640px) {
+  :root { --header-height: 52px; }
+
+  .header-inner { padding: 0 16px; }
+  .main-nav { gap: 16px; }
+  .nav-link { font-size: 13px; }
+  .logo img { height: 22px; }
+
+  .hero-inner { padding: 0 16px; }
+
+  .product { padding-left: 16px; padding-right: 16px; }
+
+  .store-grid { grid-template-columns: 1fr; }
+  .wallpaper-grid { grid-template-columns: 1fr; }
+
+  .product-desc { max-width: none; }
+}
+
+/* จอแนวนอนที่เตี้ย (มือถือหมุนนอน) กันไม่ให้ hero สูงเกินไปจนต้องเลื่อนเยอะ */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* object-fit: contain การันตีว่ารูปไม่ถูก crop อยู่แล้ว จึงลดความสูงตรงนี้ได้อย่างปลอดภัย */
+  .hero { height: clamp(180px, 40vh, 320px); }
+  .hero-text h1 { font-size: clamp(22px, 4.5vw, 36px); }
+  .hero-text h2 { font-size: clamp(13px, 3vw, 16px); }
+}

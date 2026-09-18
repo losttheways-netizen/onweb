@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SONY'S OFFICIAL GOODS</title>
+<meta name="description" content="Sony's Official Goods - จากแผ่นเสียง เทปคาสเซ็ต สู่ Walkman">
+
+<!-- ฟอนต์จาก Google Fonts
+     - Unbounded    : หัวข้อใหญ่ตัวหนา (h1 / ชื่อคอลเลกชัน / ชื่อ section)
+     - Noto Sans    : ตัวอักษรภาษาอังกฤษทั่วไป (เมนู, ปุ่ม, ป้ายกำกับ)
+     - IBM Plex Sans Thai : ตัวอักษรภาษาไทยทั้งหมด -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Noto+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ไฟล์ CSS หลัก แยกออกมาต่างหากตามที่ขอ -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER / เมนูบนสุด (ค้างอยู่ด้านบนตลอดเวลาด้วย position: sticky)
+     - โลโก้ Sony -> ลิงก์ไปเว็บ Sony ประเทศไทย
+     - About -> เลื่อนไปหัวข้อ Introduction (#introduction)
+     - Product -> เลื่อนไปสินค้าชิ้นแรก (#product-01)
+     - Store -> เลื่อนไปหัวข้อ Available at Sony Store (#store)
+     ============================================================ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <!-- โลโก้ Sony (รูปภาพ) - เปลี่ยนไฟล์ได้ที่ images/logos/logo_Sony.png -->
+    <a class="logo" href="https://www.sony.co.th/th" target="_blank" rel="noopener">
+      <img src="images/logos/logo_Sony.png" alt="Sony">
+    </a>
+
+    <nav class="main-nav" aria-label="เมนูหลัก">
+      <a href="#introduction" class="nav-link">About</a>
+      <a href="#product-01" class="nav-link">Product</a>
+      <a href="#store" class="nav-link">Store</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================================================
+       HERO SECTION - รูปเต็ม section (เต็มความสูงเสมอ ตัดขอบซ้าย-ขวาตามพื้นที่จอ)
+       + หัวข้อใหญ่วางทับฝั่งซ้าย (ตรงพื้นที่ว่างในรูป)
+       แก้ไขรูปได้ที่ images/hero/Hero.png
+       ============================================================ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/hero/Hero.png" alt="Sony's Official Goods collection">
+    </div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>SONY'S<br>OFFICIAL<br>GOODS</h1>
+        <h2>สินค้าลิขสิทธิ์แท้จากโซนี่</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MARQUEE - แถบสีดำ ตัวหนังสือสีเขียววิ่งจากซ้ายไปขวา วนลูป
+       (ใช้ Component เดียวกันนี้ซ้ำได้ทุกที่ที่ต้องการ)
+       ============================================================ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>SONY'S OFFICIAL GOODS&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span>SONY'S OFFICIAL GOODS&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span>SONY'S OFFICIAL GOODS&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span>SONY'S OFFICIAL GOODS&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span>SONY'S OFFICIAL GOODS&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span>SONY'S OFFICIAL GOODS&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <!-- สำเนาชุดเดิมซ้ำอีกรอบ เพื่อให้ Loop ต่อกันไม่มีช่องว่าง (ห้ามลบ) -->
+      <span aria-hidden="true">SONY'S OFFICIAL GOODS&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span aria-hidden="true">SONY'S OFFICIAL GOODS&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span aria-hidden="true">SONY'S OFFICIAL GOODS&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span aria-hidden="true">SONY'S OFFICIAL GOODS&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span aria-hidden="true">SONY'S OFFICIAL GOODS&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span aria-hidden="true">SONY'S OFFICIAL GOODS&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       INTRODUCTION - หัวข้อ + คำอธิบายโปรเจกต์ (ปลายทางของเมนู About)
+       แก้ไขข้อความได้อย่างอิสระในส่วนนี้
+       ============================================================ -->
+  <section class="intro" id="introduction">
+    <div class="intro-inner">
+      <h2 class="intro-title">SONY'S OFFICIAL GOODS</h2>
+      <p class="intro-subtitle">จากแผ่นเสียง เทปคาสเซ็ต สู่ Walkman</p>
+
+      <p class="intro-text">
+        ตลอดเส้นทางที่ผ่านมา Sony มุ่งมั่นสร้างสรรค์ประสบการณ์ที่เปิดโอกาสให้ทุกคนเพลิดเพลินกับเสียงเพลงได้อย่างอิสระในแบบของตนเอง
+      </p>
+      <p class="intro-text">
+        จากจุดเริ่มต้นของวัฒนธรรมการฟังเพลงที่พัฒนาอย่างไม่หยุดนิ่ง วันนี้ Sony ถ่ายทอดเรื่องราวและมรดกทางดนตรีผ่าน
+        Sony’s Official Goods Collection คอลเลกชันพิเศษที่ได้รับแรงบันดาลใจจากเอกลักษณ์ของ Sony
+      </p>
+      <p class="intro-text">
+        คอลเลกชันนี้เชื่อมโยงความหลงใหลในเสียงดนตรีจากอดีตสู่ปัจจุบัน พร้อมสร้างแรงบันดาลใจ
+        ให้ทุกคนออกแบบเส้นทางแห่งเสียงเพลงในแบบของตนเอง
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRODUCTS - รายการสินค้าทั้งหมด (5 คอลเลกชัน)
+       โครงสร้างเหมือนกันทุกชิ้น: รูปใหญ่ + thumbnail อยู่ฝั่งเดียวกัน
+       ข้อมูล (ป้ายกำกับ/ชื่อ/คำอธิบาย/ราคา/ปุ่มซื้อ) อยู่รวมกันอีกฝั่ง
+       สลับฝั่งซ้าย-ขวาสินค้าคู่/คี่ด้วยคลาส "product--reverse"
+       ข้อมูลจริง (รูป/ชื่อ/ราคา) ถูกดึงมาจาก js/main.js เพื่อให้แก้ไขง่าย
+       ที่เดียว ไม่ต้องมาไล่แก้ใน HTML หลายจุด
+       ============================================================ -->
+  <section class="products" id="product-01">
+
+    <!-- ---------- 01 : TAPE (รูปอยู่ซ้าย ข้อมูลอยู่ขวา) ---------- -->
+    <article class="product" id="p-01" data-product="01">
+      <div class="product__media">
+        <img class="js-main-image" src="images/products/01/main-1.jpg" alt="Tape - CDixV Metal46">
+        <div class="product__thumbs js-thumb-list">
+          <!-- Thumbnail ถูกสร้างด้วย JavaScript จากข้อมูลใน js/main.js (ดู PRODUCTS['01'].variants) -->
+        </div>
+      </div>
+      <div class="product__info">
+        <h1 class="product-number">01</h1>
+        <h2 class="product-title">Cassette Tape</h2>
+        <p class="product-collection">CDixV Metal46</p>
+        <p class="product-desc">
+         ได้รับแรงบันดาลใจจากซีรีย์ Metal ที่เปิดตัวในปี 1987 โดดเด่นด้วยตัวตลับโปร่งใสและสีสันสดใส
+         สะท้อนวัฒนธรรมดนตรีและการแสดงออกในยุคหนึ่ง
+         ถ่ายทอดสู่เสื้อยืดกราฟิกที่เน้นเส้นสายอันโดดเด่น สะท้อนเอกลักษณ์ของผลิตภัณฑ์ได้อย่างชัดเจน
+        </p>
+
+        <p> <ul class="square-list"><b>สินค้า</b> 
+  <li>เสื้อยืดแขนสั้น Regular Fit (S/M/L/XL)
+  จำนวนจำกัด 250 ตัว</li>
+  <li>พวงกุญแจ จำนวนจำกัด 100 ชิ้น</li>
+</ul>
+</p>
+        <div class="product-meta">
+          <div class="product-meta__col">
+            <span class="product-meta__label">PRODUCT</span>
+            <span class="product-meta__value js-product-name">CDixV Metal46 Keychain</span>
+          </div>
+          <div class="product-meta__col">
+            <span class="product-meta__label">PRICE</span>
+            <span class="product-meta__value js-product-price">250 บาท</span>
+          </div>
+        </div>
+        <!-- TODO: เปลี่ยน href เป็นลิงก์หน้าสั่งซื้อสินค้าจริง -->
+        <a href="#" class="buy-btn js-buy-link">ซื้อเลย</a>
+      </div>
+    </article>
+
+    <!-- ---------- 02 : WALKMAN (สลับด้าน: ข้อมูลอยู่ซ้าย รูปอยู่ขวา) ---------- -->
+    <article class="product product--reverse" id="p-02" data-product="02">
+      <div class="product__media">
+        <img class="js-main-image" src="images/products/02/main-1.jpg" alt="Walkman - WM-F5">
+        <div class="product__thumbs js-thumb-list"></div>
+      </div>
+      <div class="product__info">
+        <p class="product-tag">WALKMAN • SPORTS HERITAGE</p>
+        <h3 class="product-title">Walkman</h3>
+        <p class="product-collection">"WM-F5"</p>
+        <p class="product-desc">
+          ได้รับแรงบันดาลใจจาก WALKMAN Sports สัญลักษณ์ของยุคกีฬาในช่วงทศวรรษ 1980 (เปิดตัวในปี 1983)
+          มาพร้อมคุณสมบัติกันน้ำ และได้รับการออกแบบให้สอดรับกับไลฟ์สไตล์ที่แอ็กทีฟและคล่องตัว </p>
+         <p class="product-desc"> ถ่ายทอดเอกลักษณ์ผ่านกราฟิกที่ได้รับแรงบันดาลใจจากการว่ายน้ำ
+          ผสานบรรยากาศของเสื้อกีฬาสไตล์ยุค 80-90 ได้อย่างลงตัว</p>
+        </p>
+            <p> <ul class="square-list"><b>สินค้า</b> </p>
+  <li>
+เสื้อยืดแขนสั้น Regular Fit (S/M/L/XL) จำนวนจำกัด 250 ตัว</li>
+<li>กระเป๋าโท้ต (Tote bag) จำนวนจำกัด 100 ใบ</li>
+<li>พวงกุญแจชาร์ม จำนวนจำกัด 150 ชิ้น</li>
+</ul>
+</p>
+        <div class="product-meta">
+          <div class="product-meta__col">
+            <span class="product-meta__label">PRODUCT</span>
+            <span class="product-meta__value js-product-name">WM-F5 T-Shirt</span>
+          </div>
+          <div class="product-meta__col">
+            <span class="product-meta__label">PRICE</span>
+            <span class="product-meta__value js-product-price">690 บาท</span>
+          </div>
+        </div>
+        <a href="#" class="buy-btn js-buy-link">ซื้อเลย</a>
+      </div>
+    </article>
+
+    <!-- ---------- 03 : MY FIRST SONY (รูปอยู่ซ้าย ข้อมูลอยู่ขวา) ---------- -->
+    <article class="product" id="p-03" data-product="03">
+      <div class="product__media">
+        <img class="js-main-image" src="images/products/03/main-1.jpg" alt="My First Sony">
+        <div class="product__thumbs js-thumb-list"></div>
+      </div>
+      <div class="product__info">
+        <p class="product-tag">SONY HERITAGE • PLAYFUL DESIGN</p>
+        <h3 class="product-title">My First Sony</h3>
+        <p class="product-collection">คอลเลกชัน "My First Sony"</p>
+        <p class="product-desc">
+          พื้นที่สำหรับให้ธุรกิจแรงบันดาลใจและความทรงจำ ถ่ายทอดผ่านลวดลายสนุกสนาน
+          ในคอลเลกชัน My First Sony
+        </p>
+        <div class="product-meta">
+          <div class="product-meta__col">
+            <span class="product-meta__label">PRODUCT</span>
+            <span class="product-meta__value js-product-name">My First Sony T-Shirt</span>
+          </div>
+          <div class="product-meta__col">
+            <span class="product-meta__label">PRICE</span>
+            <span class="product-meta__value js-product-price">690 บาท</span>
+          </div>
+        </div>
+        <a href="#" class="buy-btn js-buy-link">ซื้อเลย</a>
+      </div>
+    </article>
+
+    <!-- ---------- 04 : HANDY CAM (สลับด้าน: ข้อมูลอยู่ซ้าย รูปอยู่ขวา) ---------- -->
+    <article class="product product--reverse" id="p-04" data-product="04">
+      <div class="product__media">
+        <img class="js-main-image" src="images/products/04/main-1.jpg" alt="Handy Cam">
+        <div class="product__thumbs js-thumb-list"></div>
+      </div>
+      <div class="product__info">
+        <p class="product-tag">VIDEO HERITAGE • CREATIVE CULTURE</p>
+        <h3 class="product-title">Handy Cam</h3>
+        <p class="product-collection">คอลเลกชัน "Handy Cam"</p>
+        <p class="product-desc">
+          คอลเลกชัน Handy Cam ถ่ายทอดกลิ่นอายย้อนยุคของ Digital Handycam
+          ผ่านมุมมองการออกแบบร่วมสมัย
+        </p>
+        <div class="product-meta">
+          <div class="product-meta__col">
+            <span class="product-meta__label">PRODUCT</span>
+            <span class="product-meta__value js-product-name">Handy Cam Long Sleeve T-Shirt</span>
+          </div>
+          <div class="product-meta__col">
+            <span class="product-meta__label">PRICE</span>
+            <span class="product-meta__value js-product-price">790 บาท</span>
+          </div>
+        </div>
+        <a href="#" class="buy-btn js-buy-link">ซื้อเลย</a>
+      </div>
+    </article>
+
+    <!-- ---------- 05 : WALKMAN-8 (รูปอยู่ซ้าย ข้อมูลอยู่ขวา) ---------- -->
+    <article class="product" id="p-05" data-product="05">
+      <div class="product__media">
+        <img class="js-main-image" src="images/products/05/main-1.jpg" alt="Walkman-8">
+        <div class="product__thumbs js-thumb-list"></div>
+      </div>
+      <div class="product__info">
+        <p class="product-tag">WALKMAN • MUSIC HERITAGE</p>
+        <h3 class="product-title">Walkman-8</h3>
+        <p class="product-collection">คอลเลกชัน "Walkman-8"</p>
+        <p class="product-desc">
+          คอลเลกชัน Walkman-8 นำความทรงจำเสียงเพลงยุคเทปคาสเซ็ตกลับมาอีกครั้ง
+          พร้อมมอบสัมผัสใหม่ให้เข้ากับไลฟ์สไตล์ปัจจุบัน
+        </p>
+        <div class="product-meta">
+          <div class="product-meta__col">
+            <span class="product-meta__label">PRODUCT</span>
+            <span class="product-meta__value js-product-name">Walkman-8 Long Sleeve T-Shirt</span>
+          </div>
+          <div class="product-meta__col">
+            <span class="product-meta__label">PRICE</span>
+            <span class="product-meta__value js-product-price">790 บาท</span>
+          </div>
+        </div>
+        <a href="#" class="buy-btn js-buy-link">ซื้อเลย</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ============================================================
+       AVAILABLE AT SONY STORE (ปลายทางของเมนู Store)
+       - ชื่อสาขา -> ลิงก์ Google Maps (เปิดแท็บใหม่)
+       - เบอร์โทร -> ลิงก์โทรออก (tel:)
+       - Sony Store Online -> ลิงก์ไปหน้าร้านค้าออนไลน์
+       แก้ไขข้อมูลสาขาได้ที่ js/main.js (ตัวแปร STORES)
+       ============================================================ -->
+  <section class="store" id="store">
+    <h2 class="store-title">Available at Sony Store</h2>
+    <div class="store-grid js-store-grid">
+      <!-- การ์ดร้านค้าถูกสร้างด้วย JavaScript จาก js/main.js -->
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WALLPAPER DOWNLOAD SECTION
+       คลิกที่รูป/ปุ่ม Mobile หรือ Desktop เพื่อไปหน้าดาวน์โหลดภายนอก
+       แก้ไขลิงก์ได้ที่ js/main.js (ตัวแปร WALLPAPERS)
+       ============================================================ -->
+  <section class="wallpaper">
+    <h2 class="wallpaper-title">ลงทะเบียนเพื่อดาวน์โหลด<br>Wallpaper</h2>
+    <p class="wallpaper-desc">เลือก Wallpaper ที่ชอบสำหรับมือถือและคอมพิวเตอร์ โดยยินยอมดาวน์โหลด</p>
+    <div class="wallpaper-grid js-wallpaper-grid">
+      <!-- การ์ด Wallpaper ถูกสร้างด้วย JavaScript -->
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <p>&copy;2026 Sony Group Corporation</p>
+</footer>
+
+<!-- ============================================================
+     FLOATING BOX (มุมขวาล่าง) — ลิงก์ออกไป https://www.sony.co.th
+     เปลี่ยนรูปได้ที่ images/logos/Floting-box.png
+     ============================================================ -->
+<a class="floating-box" href="https://www.sony.co.th" target="_blank" rel="noopener" aria-label="Sony.co.th">
+  <img src="images/logos/Floting-box.png" alt="Sony.co.th">
+</a>
+
+<!-- ไฟล์ JavaScript หลัก (ข้อมูลสินค้า/ร้านค้า + การทำงานของหน้าเว็บ) -->
+<script src="js/main.js"></script>
+</body>
+</html>
