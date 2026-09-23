@@ -20,6 +20,18 @@
 <body>
 
 <!-- ============================================================
+     SPLASH SCREEN (เฉพาะจอเดสก์ท็อป) — วิดีโอเปิดหน้าเว็บ 1 รอบ
+     - ไฟล์วิดีโอ: images/splash/sony.mp4 (เปลี่ยนไฟล์ได้ที่นี่)
+     - บนจอมือถือ/แท็บเล็ต (กว้าง <= 900px) จะไม่แสดงและไม่โหลดวิดีโอเลย
+     - ทำงานที่ js/splash.js
+     ============================================================ -->
+<div id="splash-screen" class="splash-screen" aria-hidden="true">
+  <video id="splash-video" class="splash-video" muted playsinline preload="none">
+    <source data-src="images/splash/sony.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- ============================================================
      HEADER / เมนูบนสุด (ค้างอยู่ด้านบนตลอดเวลาด้วย position: sticky)
      - โลโก้ Sony -> ลิงก์ไปเว็บ Sony ประเทศไทย
      - About -> เลื่อนไปหัวข้อ Introduction (#introduction)
@@ -323,5 +335,7 @@
 
 <!-- ไฟล์ JavaScript หลัก (ข้อมูลสินค้า/ร้านค้า + การทำงานของหน้าเว็บ) -->
 <script src="js/main.js"></script>
+<!-- splash screen วิดีโอเปิดหน้า (เดสก์ท็อปเท่านั้น) -->
+<script src="js/splash.js"></script>
 </body>
 </html>
