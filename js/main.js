@@ -66,25 +66,47 @@ const PRODUCTS = {
   "03": {
     variants: [
       { thumb: "images/products/03/thumb-1.jpg", main: "images/products/03/main-1.jpg", name: "My First Sony T-Shirt", price: "690 บาท", buyUrl: "#" },
-      { thumb: "images/products/03/thumb-2.jpg", main: "images/products/03/main-2.jpg", name: "My First Sony T-Shirt (Kids)", price: "590 บาท", buyUrl: "#" },
-      { thumb: "images/products/03/thumb-3.jpg", main: "images/products/03/main-3.jpg", name: "My First Sony Sticker Sheet", price: "150 บาท", buyUrl: "#" },
-      { thumb: "images/products/03/thumb-4.jpg", main: "images/products/03/main-4.jpg", name: "My First Sony Tote Bag", price: "390 บาท", buyUrl: "#" }
+      { thumb: "images/products/03/thumb-2.jpg", main: "images/products/03/main-2.jpg", name: "My First Sony T-Shirt", price: "690 บาท", buyUrl: "#" },
+      { thumb: "images/products/03/thumb-3.jpg", main: "images/products/03/main-3.jpg", name: "My First Sony T-Shirt", price: "690 บาท", buyUrl: "#" },
+      { thumb: "images/products/03/thumb-4.jpg", main: "images/products/03/main-4.jpg", name: "My First Sony T-Shirt", price: "690 บาท", buyUrl: "#" },
+      { thumb: "images/products/03/thumb-5.jpg", main: "images/products/03/main-5.jpg", name: "My First Sony T-Shirt", price: "690 บาท", buyUrl: "#" },
+      { thumb: "images/products/03/thumb-6.jpg", main: "images/products/03/main-6.jpg", name: "My First Sony T-Shirt", price: "690 บาท", buyUrl: "#" },
+      { thumb: "images/products/03/thumb-7.jpg", main: "images/products/03/main-7.jpg", name: "My First Sony T-Shirt", price: "690 บาท", buyUrl: "#" },
+      { thumb: "images/products/03/thumb-8.jpg", main: "images/products/03/main-8.jpg", name: "My First Sony Keychain", price: "250 บาท", buyUrl: "#" },
+      { thumb: "images/products/03/thumb-9.jpg", main: "images/products/03/main-9.jpg", name: "My First Sony Keychain", price: "250 บาท", buyUrl: "#" },
+      { thumb: "images/products/03/thumb-10.jpg", main: "images/products/03/main-10.jpg", name: "My First Sony Tote Bag", price: "390 บาท", buyUrl: "#" },
+      { thumb: "images/products/03/thumb-11.jpg", main: "images/products/03/main-11.jpg", name: "My First Sony Tote Bag", price: "390 บาท", buyUrl: "#" },
+      { thumb: "images/products/03/thumb-12.jpg", main: "images/products/03/main-12.jpg", name: "My First Sony Tote Bag", price: "390 บาท", buyUrl: "#" }
     ]
   },
   "04": {
     variants: [
       { thumb: "images/products/04/thumb-1.jpg", main: "images/products/04/main-1.jpg", name: "Handy Cam Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#" },
-      { thumb: "images/products/04/thumb-2.jpg", main: "images/products/04/main-2.jpg", name: "Handy Cam T-Shirt", price: "690 บาท", buyUrl: "#" },
-      { thumb: "images/products/04/thumb-3.jpg", main: "images/products/04/main-3.jpg", name: "Handy Cam Cap", price: "450 บาท", buyUrl: "#" },
-      { thumb: "images/products/04/thumb-4.jpg", main: "images/products/04/main-4.jpg", name: "Handy Cam Keychain", price: "250 บาท", buyUrl: "#" }
+      { thumb: "images/products/04/thumb-2.jpg", main: "images/products/04/main-2.jpg", name: "Handy Cam Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#"},
+      { thumb: "images/products/04/thumb-3.jpg", main: "images/products/04/main-3.jpg", name: "Handy Cam Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#" },
+      { thumb: "images/products/04/thumb-4.jpg", main: "images/products/04/main-4.jpg", name: "Handy Cam Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#"  },
+      { thumb: "images/products/04/thumb-5.jpg", main: "images/products/04/main-5.jpg", name: "Handy Cam Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#" },
+      { thumb: "images/products/04/thumb-6.jpg", main: "images/products/04/main-6.jpg", name: "Handy Cam Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#" },
+      { thumb: "images/products/04/thumb-7.jpg", main: "images/products/04/main-7.jpg", name: "Handy Cam Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#" },
+      { thumb: "images/products/04/thumb-8.jpg", main: "images/products/04/main-8.jpg", name: "Handy Cam Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#" },
+      { thumb: "images/products/04/thumb-9.jpg", main: "images/products/04/main-9.jpg", name: "Handy Cam Keychain", price: "250 บาท", buyUrl: "#"  },
+      { thumb: "images/products/04/thumb-10.jpg", main: "images/products/04/main-10.jpg", name: "Handy Cam Keychain", price: "250 บาท", buyUrl: "#" }
     ]
   },
   "05": {
     variants: [
       { thumb: "images/products/05/thumb-1.jpg", main: "images/products/05/main-1.jpg", name: "Walkman-8 Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#" },
-      { thumb: "images/products/05/thumb-2.jpg", main: "images/products/05/main-2.jpg", name: "Walkman-8 T-Shirt", price: "690 บาท", buyUrl: "#" },
-      { thumb: "images/products/05/thumb-3.jpg", main: "images/products/05/main-3.jpg", name: "Walkman-8 Tote Bag", price: "390 บาท", buyUrl: "#" },
-      { thumb: "images/products/05/thumb-4.jpg", main: "images/products/05/main-4.jpg", name: "Walkman-8 Sticker Sheet", price: "150 บาท", buyUrl: "#" }
+      { thumb: "images/products/05/thumb-2.jpg", main: "images/products/05/main-2.jpg", name: "Walkman-8 Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#" },
+      { thumb: "images/products/05/thumb-3.jpg", main: "images/products/05/main-3.jpg", name: "Walkman-8 Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#" },
+      { thumb: "images/products/05/thumb-4.jpg", main: "images/products/05/main-4.jpg", name: "Walkman-8 Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#"  },
+      { thumb: "images/products/05/thumb-5.jpg", main: "images/products/05/main-5.jpg", name: "Walkman-8 Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#" },
+      { thumb: "images/products/05/thumb-6.jpg", main: "images/products/05/main-6.jpg", name: "Walkman-8 Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#" },
+      { thumb: "images/products/05/thumb-7.jpg", main: "images/products/05/main-7.jpg", name: "Walkman-8 Long Sleeve T-Shirt", price: "790 บาท", buyUrl: "#" },
+      { thumb: "images/products/05/thumb-8.jpg", main: "images/products/05/main-8.jpg", name: "Walkman-8 Keychain", price: "250 บาท", buyUrl: "#" },
+      { thumb: "images/products/05/thumb-9.jpg", main: "images/products/05/main-9.jpg", name: "Walkman-8 Keychain", price: "250 บาท", buyUrl: "#" },
+      { thumb: "images/products/05/thumb-10.jpg", main: "images/products/05/main-10.jpg", name: "Walkman-8 Tote Bag", price: "390 บาท", buyUrl: "#"  },
+      { thumb: "images/products/05/thumb-11.jpg", main: "images/products/05/main-11.jpg", name: "Walkman-8 Tote Bag", price: "390 บาท", buyUrl: "#" },
+      { thumb: "images/products/05/thumb-12.jpg", main: "images/products/05/main-12.jpg", name: "Walkman-8 Tote Bag", price: "390 บาท", buyUrl: "#" }
     ]
   }
 };
@@ -102,14 +124,16 @@ const STORES = [
     addr: "ศูนย์การค้าสยามพารากอน ชั้น 2 โซนสยาม",
     phone: "065-512-6256",
     mapQuery: "Sony Store Siam Paragon",
-    cardClass: "store-card--dark"
+    cardClass: "store-card--dark",
+    lineUrl: "https://line.me/R/ti/p/@217qmbbx?ts=02191536&oat_content=url"
   },
   {
     name: "Sony Store Future Park Rangsit",
     addr: "ศูนย์การค้าฟิวเจอร์พาร์ค รังสิต ชั้น 2 โซน West",
     phone: "097-918-6515",
     mapQuery: "Sony Store Future Park Rangsit",
-    cardClass: "store-card--blue"
+    cardClass: "store-card--blue",
+    lineUrl: "https://line.me/R/ti/p/@191sraia?ts=04041729&oat_content=url"
   },
   {
     name: "Sony Store Online",
@@ -225,8 +249,13 @@ function renderStores() {
     if (store.phone) {
       linksHtml += `<a class="store-card__link" href="tel:${store.phone.replace(/-/g, "")}">${phoneIcon} ${store.phone}</a>`;
     }
-    // "สอบถามข้อมูลเพิ่มเติม" อยู่ใต้เส้นขีด ลิงก์ไปเว็บ Sony หลักเสมอ
-    linksHtml += `<a class="store-card__link store-card__link--more" href="https://www.sony.co.th" target="_blank" rel="noopener">สอบถามข้อมูลเพิ่มเติม</a>`;
+    // การ์ดดำ/น้ำเงิน -> "สอบถามข้อมูลเพิ่มเติม" ลิงก์ไป Line ของสาขานั้น (store.lineUrl แยกกันคนละสาขา)
+    // การ์ดขาว (ร้านออนไลน์) -> "ดูสินค้าทั้งหมด" ลิงก์ไปเว็บ Sony หลักเหมือนเดิม
+    if (store.lineUrl) {
+      linksHtml += `<a class="store-card__link store-card__link--more" href="${store.lineUrl}" target="_blank" rel="noopener">สอบถามข้อมูลเพิ่มเติม</a>`;
+    } else {
+      linksHtml += `<a class="store-card__link store-card__link--more" href="https://www.sony.co.th" target="_blank" rel="noopener">ดูสินค้าทั้งหมด</a>`;
+    }
 
     card.innerHTML = `
       <div>
