@@ -152,17 +152,17 @@ const STORES = [
 const WALLPAPERS = [
   {
     label: "01 CDixV Metal46",
-    mobileImg: "images/wallpaper/01-cdixv-mobile.jpg",
-    mobileUrl: "#", // TODO: ใส่ลิงก์ดาวน์โหลดไฟล์มือถือจริง
-    desktopImg: "images/wallpaper/01-cdixv-desktop.jpg",
-    desktopUrl: "#" // TODO: ใส่ลิงก์ดาวน์โหลดไฟล์คอมพิวเตอร์จริง
+    mobileImg: "images/wallpaper/01-cdixv-mobile.png",
+    desktopImg: "images/wallpaper/01-cdixv-desktop.png",
+    // ปุ่ม "ดาวน์โหลด" ปุ่มเดียวต่อการ์ด -> ใส่ลิงก์ปลายทางจริงตรงนี้
+    // TODO: เปลี่ยนเป็นลิงก์ดาวน์โหลด/หน้า My Sony ID จริง
+    downloadUrl: "#"
   },
   {
     label: "02 WM-F5",
-    mobileImg: "images/wallpaper/02-wf5-mobile.jpg",
-    mobileUrl: "#",
-    desktopImg: "images/wallpaper/02-wf5-desktop.jpg",
-    desktopUrl: "#"
+    mobileImg: "images/wallpaper/02-wf5-mobile.png",
+    desktopImg: "images/wallpaper/02-wf5-desktop.png",
+    downloadUrl: "#"
   }
 ];
 
@@ -284,15 +284,16 @@ function renderWallpapers() {
     card.innerHTML = `
       <p class="wallpaper-card__label">${wp.label}</p>
       <div class="wallpaper-card__previews">
-        <a class="wallpaper-card__link" href="${wp.mobileUrl}" target="_blank" rel="noopener">
+        <div class="wallpaper-card__preview">
           <img src="${wp.mobileImg}" alt="${wp.label} - Mobile Wallpaper">
           <span>Mobile</span>
-        </a>
-        <a class="wallpaper-card__link" href="${wp.desktopUrl}" target="_blank" rel="noopener">
+        </div>
+        <div class="wallpaper-card__preview">
           <img src="${wp.desktopImg}" alt="${wp.label} - Desktop Wallpaper">
           <span>Desktop</span>
-        </a>
+        </div>
       </div>
+      <a class="wallpaper-card__download" href="${wp.downloadUrl}" target="_blank" rel="noopener">ดาวน์โหลด</a>
     `;
     grid.appendChild(card);
   });

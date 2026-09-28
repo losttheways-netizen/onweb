@@ -314,9 +314,13 @@ ul.square-list {
 
 /* ---------------------------------------------------------------
    8. PRODUCTS — โครงสร้างร่วม + เลย์เอาต์ 2 คอลัมน์ (ใช้กับสินค้าทุกชิ้นเหมือนกัน)
+   ใช้ CSS Grid (ไม่ใช่ flex) เพื่อคุมลำดับการแสดงผลแยกจากลำดับ DOM ได้:
    - .product__media : รูปใหญ่ + แถว thumbnail อยู่ฝั่งเดียวกัน
-   - .product__info  : ป้ายกำกับ/ชื่อ/คำอธิบาย/ราคา/ปุ่มซื้อ อยู่รวมกันอีกฝั่ง
+   - .product__info  : หัวข้อ/ชื่อคอลเลกชัน/คำอธิบาย/รายการสินค้า (bullet list)
+   - .product__cta   : แถว PRODUCT/PRICE + ปุ่มซื้อเลย
    - .product--reverse : สลับให้ข้อมูลอยู่ซ้าย รูปอยู่ขวา (ใช้กับสินค้าชิ้นคู่ 02, 04)
+   - บนจอมือถือ (ดูใน RESPONSIVE) จะเรียง info -> media -> cta เสมอ
+     (รูปอยู่ก่อนแถว PRODUCT/PRICE/ปุ่มซื้อ แต่หัวข้อ/คำอธิบายยังอยู่บนสุดเหมือนเดิม)
 --------------------------------------------------------------- */
 .products {
   padding: clamp(24px, 5vw, 48px) 0;
@@ -326,9 +330,15 @@ ul.square-list {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: clamp(40px, 6vw, 72px) var(--gutter);
-  display: flex;
-  align-items: flex-start;
-  gap: clamp(28px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "media info"
+    "media cta";
+  align-items: start;
+  align-content: start;
+  column-gap: clamp(28px, 5vw, 64px);
+  row-gap: 0;
 }
 
 /* เส้นคั่นบางๆ ระหว่างสินค้าแต่ละชิ้น (แทนที่แถบ Marquee เดิมที่คั่นระหว่างสินค้า) */
@@ -337,11 +347,13 @@ ul.square-list {
 }
 
 .product--reverse {
-  flex-direction: row-reverse;
+  grid-template-areas:
+    "info media"
+    "cta media";
 }
 
 .product__media {
-  flex: 1 1 50%;
+  grid-area: media;
   min-width: 0;
 }
 
@@ -360,7 +372,14 @@ ul.square-list {
 }
 
 .product__info {
-  flex: 1 1 50%;
+  grid-area: info;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.product__cta {
+  grid-area: cta;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -574,7 +593,8 @@ ul.square-list {
 
 .wallpaper-desc {
   margin-top: 12px;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 20px;
   color: var(--color-gray-700);
 }
 
@@ -583,47 +603,81 @@ ul.square-list {
   margin: 32px auto 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 28px;   /* เผื่อพื้นที่ให้เห็นเงาการ์ดชัดเจน เหมือน section store */
   text-align: left;
 }
 
+/* การ์ด Wallpaper: ทรงเหลี่ยมคมและเงาแบบเดียวกับการ์ดใน section store */
 .wallpaper-card {
-  border: 1px solid var(--color-gray-300);
-  border-radius: var(--radius-md);
-  overflow: hidden;
+  border-radius: 0;   /* มุมแหลม ไม่มน */
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.65);   /* เงาสีเข้ม ขอบคมไม่เบลอ เยื้องลงขวา */
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* สลับสีพื้นหลังการ์ด: ใบแรกสีขาว ใบถัดไปสีดำ สลับกันไปเรื่อยๆ */
+.wallpaper-card:nth-child(odd) {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+.wallpaper-card:nth-child(even) {
   background: var(--color-black);
   color: var(--color-white);
 }
 
 .wallpaper-card__label {
-  padding: 10px 16px;
-  font-family: var(--font-en);
-  font-weight: 700;
-  font-size: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid currentColor;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(18px, 2vw, 22px);
 }
 
 .wallpaper-card__previews {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;   /* รูป mobile/desktop ตั้งฐานเดียวกัน */
+  justify-content: center;
+  gap: 20px;
 }
 
-.wallpaper-card__link {
-  display: block;
-  position: relative;
+.wallpaper-card__preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
-.wallpaper-card__link img { width: 100%; height: 160px; object-fit: cover; }
+.wallpaper-card__preview img {
+  height: clamp(140px, 22vw, 220px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
 
-.wallpaper-card__link span {
-  position: absolute;
-  bottom: 8px; left: 8px;
+.wallpaper-card__preview span {
   font-family: var(--font-en);
-  font-size: 11px;
   font-weight: 700;
-  background: rgba(0,0,0,0.55);
-  padding: 3px 8px;
-  border-radius: 3px;
+  font-size: 13px;
 }
+
+/* ปุ่มดาวน์โหลด: สไตล์เดียวกับปุ่ม "ซื้อเลย" (.buy-btn) อยู่กึ่งกลางการ์ด */
+.wallpaper-card__download {
+  align-self: center;
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--color-red);
+  color: var(--color-white);
+  font-family: var(--font-th);
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 999px;
+  transition: background var(--ease);
+}
+
+.wallpaper-card__download:hover { background: var(--color-red-dark); }
 
 
 /* ---------------------------------------------------------------
@@ -675,15 +729,27 @@ ul.square-list {
    จัดให้ใช้งานได้ดีทั้งจอมือถือ/แท็บเล็ต/เดสก์ท็อป และทั้งแนวตั้ง-แนวนอน
 --------------------------------------------------------------- */
 
-/* แท็บเล็ตและจอเล็กลงมา: สินค้าเรียงเป็นคอลัมน์เดียว (รูปอยู่บน ข้อมูลอยู่ล่างเสมอ
-   ไม่ว่าจะเป็นสินค้าชิ้นคู่/คี่ - ยกเลิกการสลับซ้าย-ขวาชั่วคราวบนจอแคบ) */
+/* แท็บเล็ตและจอเล็กลงมา: สินค้าเรียงเป็นคอลัมน์เดียว
+   ลำดับ = หัวข้อ/คำอธิบาย -> รูป -> PRODUCT/PRICE/ปุ่มซื้อ
+   (ไม่ว่าจะเป็นสินค้าชิ้นคู่/คี่ - ยกเลิกการสลับซ้าย-ขวาชั่วคราวบนจอแคบ) */
 @media (max-width: 900px) {
   .product,
   .product--reverse {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "info"
+      "media"
+      "cta";
   }
 
-  .product__info { width: 100%; }
+  /* ระยะห่างระหว่างข้อความด้านบนกับรูป main (ตอนเรียงคอลัมน์เดียว) */
+  .product__media { margin-top: clamp(24px, 6vw, 36px); }
+
+  /* ความสูง hero บนจอแนวตั้ง/แคบ (มือถือ+แท็บเล็ตพอร์เทรต) กันไม่ให้ตกกลับไปใช้ค่าเดสก์ท็อป
+     ที่ช่วงความกว้าง 641-900px (เพิ่มจากค่าตั้งต้นประมาณ 15%) */
+  .hero {
+    height: clamp(276px, 80.5vw, 368px);
+  }
 
   .store-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -696,10 +762,6 @@ ul.square-list {
   .main-nav { gap: 16px; }
   .nav-link { font-size: 13px; }
   .logo img { height: 22px; }
-
-  .hero {
-    height: clamp(240px, 70vw, 320px);
-  }
 
   .hero-bg {
     padding: 18px 14px;   /* เว้นขอบให้รูปเล็กลงเล็กน้อย เผื่อพื้นที่ให้หัวข้อไม่ทับรูป */
