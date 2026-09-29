@@ -130,7 +130,9 @@ ul.square-list {
   padding: 0 var(--gutter);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* เอาโลโก้ออกชั่วคราว เลยเปลี่ยนเป็น center ให้เมนูอยู่กลาง
+     ถ้าเอาโลโก้กลับมา ให้เปลี่ยนกลับเป็น space-between */
+  justify-content: center;
 }
 
 .logo {
