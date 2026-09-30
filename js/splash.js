@@ -1,19 +1,12 @@
 /* ============================================================
-   SPLASH SCREEN — วิดีโอเปิดหน้าเว็บ (เฉพาะจอเดสก์ท็อป)
-   - เล่นวิดีโอ images/splash/sony.mp4 เต็มจอ 1 รอบตอนโหลดหน้า
-   - พอวิดีโอจบ (หรือเล่นไม่ได้ / ติดปัญหา) จะ fade ออกแล้วลบทิ้ง
-   - บนจอมือถือ/แท็บเล็ต (กว้าง <= 900px) จะไม่โหลดวิดีโอเลย ประหยัด bandwidth
+   SPLASH SCREEN — วิดีโอเปิดหน้าเว็บ
+   - จอกว้าง (> 900px)   : เล่น images/splash/sony.mp4
+   - จอแนวตั้ง/มือถือ (<= 900px) : เล่น images/splash/sony_Ver.mp4
+   - เล่นวิดีโอเต็มจอ 1 รอบตอนโหลดหน้า พอจบ (หรือเล่นไม่ได้ / ติดปัญหา) จะ fade ออกแล้วลบทิ้ง
    ============================================================ */
 document.addEventListener('DOMContentLoaded', function () {
   var splash = document.getElementById('splash-screen');
   if (!splash) return;
-
-  var isDesktop = window.matchMedia('(min-width: 901px)').matches;
-
-  if (!isDesktop) {
-    splash.remove();
-    return;
-  }
 
   document.documentElement.classList.add('is-splashing');
 
@@ -48,8 +41,12 @@ document.addEventListener('DOMContentLoaded', function () {
     hideSplash();
   });
 
-  // ตั้ง src ตอนนี้เท่านั้น (เดสก์ท็อปเท่านั้น) แล้วเริ่มเล่น
-  source.src = source.getAttribute('data-src');
+  // เลือกไฟล์วิดีโอตามขนาดจอ ณ ตอนโหลดหน้า แล้วเริ่มเล่น
+  var isDesktop = window.matchMedia('(min-width: 901px)').matches;
+  var chosenSrc = isDesktop
+    ? source.getAttribute('data-src-desktop')
+    : source.getAttribute('data-src-mobile');
+  source.src = chosenSrc;
   video.load();
 
   var playPromise = video.play();

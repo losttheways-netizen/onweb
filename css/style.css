@@ -792,9 +792,10 @@ ul.square-list {
 }
 
 /* ---------------------------------------------------------------
-   15. SPLASH SCREEN (เฉพาะจอเดสก์ท็อป)
+   15. SPLASH SCREEN
    วิดีโอเปิดหน้าเว็บเต็มจอ เล่นครั้งเดียวตอนโหลดหน้า แล้วจาง (fade) หายไป
-   ไฟล์วิดีโอ: images/splash/sony.mp4 — ควบคุม logic ที่ js/splash.js
+   ไฟล์วิดีโอ: images/splash/sony.mp4 (จอกว้าง) / images/splash/sony_Ver.mp4 (จอแนวตั้ง/มือถือ)
+   — เลือกไฟล์อัตโนมัติที่ js/splash.js
 --------------------------------------------------------------- */
 html.is-splashing {
   overflow: hidden;   /* กันเลื่อนหน้าเว็บระหว่างเล่น splash */
@@ -824,7 +825,3 @@ html.is-splashing {
   display: block;
 }
 
-/* มือถือ/แท็บเล็ต: ไม่แสดง splash เลย (js/splash.js จะไม่โหลดวิดีโอในเคสนี้ด้วย) */
-@media (max-width: 900px) {
-  .splash-screen { display: none !important; }
-}
