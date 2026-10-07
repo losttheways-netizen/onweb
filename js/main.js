@@ -153,16 +153,12 @@ const WALLPAPERS = [
   {
     label: "01 CDixV Metal46",
     mobileImg: "images/wallpaper/01-cdixv-mobile.png",
-    desktopImg: "images/wallpaper/01-cdixv-desktop.png",
-    // ปุ่ม "ดาวน์โหลด" ปุ่มเดียวต่อการ์ด -> ใส่ลิงก์ปลายทางจริงตรงนี้
-    // TODO: เปลี่ยนเป็นลิงก์ดาวน์โหลด/หน้า My Sony ID จริง
-    downloadUrl: "#"
+    desktopImg: "images/wallpaper/01-cdixv-desktop.png"
   },
   {
     label: "02 WM-F5",
     mobileImg: "images/wallpaper/02-wf5-mobile.png",
-    desktopImg: "images/wallpaper/02-wf5-desktop.png",
-    downloadUrl: "#"
+    desktopImg: "images/wallpaper/02-wf5-desktop.png"
   }
 ];
 
@@ -293,7 +289,6 @@ function renderWallpapers() {
           <span>Desktop</span>
         </div>
       </div>
-      <a class="wallpaper-card__download" href="${wp.downloadUrl}" target="_blank" rel="noopener">ดาวน์โหลด</a>
     `;
     grid.appendChild(card);
   });
